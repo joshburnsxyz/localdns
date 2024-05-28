@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"net"
-
+	"os"
 	"github.com/google/gopacket"
 	layers "github.com/google/gopacket/layers"
 	flag "github.com/spf13/pflag"
@@ -29,7 +29,8 @@ func main() {
 	// initialize records
 	recordsmap, err := record.NewRecordsFromCSV(csvFileFlag)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 
 	// initialize UDP Server
