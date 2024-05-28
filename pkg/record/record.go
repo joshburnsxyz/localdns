@@ -21,7 +21,7 @@ func (r Records) Add(domain string, ipaddr string) error {
   return nil
 }
 
-func NewRecordsFromCSV(csvfilepath string) (*Records, error) {
+func NewRecordsFromCSV(csvfilepath string) (Records, error) {
 
   f, err := os.Open(csvfilepath)
   if err != nil {
@@ -53,5 +53,5 @@ func NewRecordsFromCSV(csvfilepath string) (*Records, error) {
     }
   }
 
-  return &records,nil
+  return records,nil
 }
